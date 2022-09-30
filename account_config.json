@@ -1,0 +1,28 @@
+{
+    "http": {
+        "port": 7070
+    },
+    "mongoose": {
+        "uri": "mongodb://db:27017",
+        "database": "account",
+        "options": {
+            "useNewUrlParser": true
+        }
+    },
+    "email": {
+        "service": "gmail",
+        "auth": {
+            "user": "email@address.com",
+            "pass": "password"
+        }
+    },
+    "aws": {
+        "spaces": {
+            "key": "ACCESS_KEY",
+            "secret": "ACCESS_SECRET"
+        }
+    },
+    "hcaptcha": {
+        "secret": "0x0000000000000000000000000000000000000000"
+    }
+}

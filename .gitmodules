@@ -1,0 +1,4 @@
+[submodule "account"]
+	path = account
+	url = https://github.com/PretendoNetwork/account
+	branch = master

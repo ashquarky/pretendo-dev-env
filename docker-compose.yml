@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mongo:6
+    volumes:
+      - db:/data/db
+  account:
+    image: pretendonetwork/account
+    build: ./account
+    environment:
+      GENERATE_NEW_KEYS: "true"
+    volumes:
+      - ./account_config.json:/app/config.json:ro,Z
+      - certs:/app/certs
+    links:
+      - db
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt:ro,Z
+      - ./nginx/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key:ro,Z
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro,Z
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - account
