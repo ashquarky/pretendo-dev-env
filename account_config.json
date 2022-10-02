@@ -3,10 +3,15 @@
         "port": 7070
     },
     "mongoose": {
-        "uri": "mongodb://db:27017",
+        "uri": "mongodb://mongo:27017",
         "database": "account",
         "options": {
             "useNewUrlParser": true
+        }
+    },
+    "redis": {
+        "client": {
+            "url": "redis://redis:6379"
         }
     },
     "email": {

@@ -1,18 +1,26 @@
 services:
-  db:
+  mongo:
     image: mongo:6
+    command: --replSet "rs0"
+    hostname: mongo
     volumes:
+      - ./mongo/entrypoint.sh:/entrypoint.sh:ro,Z
       - db:/data/db
+    entrypoint: /usr/bin/env bash /entrypoint.sh
+  redis:
+    image: redis:7
   account:
     image: pretendonetwork/account
     build: ./account
+    restart: unless-stopped
     environment:
       GENERATE_NEW_KEYS: "true"
     volumes:
       - ./account_config.json:/app/config.json:ro,Z
       - certs:/app/certs
-    links:
-      - db
+    depends_on:
+      - mongo
+      - redis
   nginx:
     image: nginx
     volumes:
@@ -22,5 +30,9 @@ services:
     ports:
       - 80:80
       - 443:443
-    links:
+    depends_on:
       - account
+
+volumes:
+  db:
+  certs:
