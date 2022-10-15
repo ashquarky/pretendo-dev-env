@@ -14,20 +14,10 @@
             "url": "redis://redis:6379"
         }
     },
-    "email": {
-        "service": "gmail",
-        "auth": {
-            "user": "email@address.com",
-            "pass": "password"
-        }
+    "cdn": {
+        "base_url": "https://local-cdn.pretendo.cc",
+        "subdomain": "local-cdn",
+        "disk_path": "/cdn"
     },
-    "aws": {
-        "spaces": {
-            "key": "ACCESS_KEY",
-            "secret": "ACCESS_SECRET"
-        }
-    },
-    "hcaptcha": {
-        "secret": "0x0000000000000000000000000000000000000000"
-    }
+    "website_base": "https://pretendo.cc"
 }

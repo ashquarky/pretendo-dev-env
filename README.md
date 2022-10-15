@@ -1,7 +1,7 @@
 ## Setup
 ### Hosts file
 ```
-127.0.0.1 pretendo.cc account.pretendo.cc api.pretendo.cc nasc.pretendo.cc datastore.pretendo.cc conntest.pretendo.cc
+127.0.0.1 pretendo.cc account.pretendo.cc cdn.pretendo.cc api.pretendo.cc nasc.pretendo.cc datastore.pretendo.cc conntest.pretendo.cc
 ```
 
 ### Running

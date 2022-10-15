@@ -18,6 +18,7 @@ services:
     volumes:
       - ./account_config.json:/app/config.json:ro,Z
       - certs:/app/certs
+      - cdn:/cdn
     depends_on:
       - mongo
       - redis
@@ -35,4 +36,5 @@ services:
 
 volumes:
   db:
+  cdn:
   certs:
